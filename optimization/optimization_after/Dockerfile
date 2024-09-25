@@ -20,3 +20,4 @@ ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 # 3. spring-boot-loader: jar loader와 luncher
 # 4. dependencies: 프로젝트 클래스 경로에 존재하는 라이브러리 jar 파일
 # 위로 갈수록 변경이 잦은 부분이며, 아래로 갈수록 변경이 잦지 않다.
+# 자주 바뀌지 않기 때문에 캐시가 깨질 가능성이 적어짐
