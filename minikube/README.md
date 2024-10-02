@@ -139,7 +139,7 @@ $ minikube service hongminikube
 
 웹 브라우저에서 확인하게 위해  VSC 에서 포트포워딩을 진행해주었다. 
 
-![1005](https://github.com/user-attachments/assets/efce48c8-16c0-46d0-88cd-e8aaed9c02ec)
+![1008](https://github.com/user-attachments/assets/c9a39243-fab3-4e8a-b540-bdc24d69b88a)
 
 이제 [localhost/test로](http://localhost/test로) 접속시 
 
