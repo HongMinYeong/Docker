@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hongminikube
+spec:
+  replicas: 3  # Pod 수를 3으로 설정
+  selector:
+    matchLabels:
+      app: hongminikube
+  template:
+    metadata:
+      labels:
+        app: hongminikube
+    spec:
+      containers:
+      - name: hongminikube
+        image: hongminyeong/hongminikube:1.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8888
