@@ -1,4 +1,4 @@
-# Spring 애플리케이션을 Minikube에 Docker로 배포
+# Spring 애플리케이션 클러스터 구성하기
 
 ## 1. Docker Image 만들기
 
@@ -11,7 +11,7 @@
 
 나는 혹시 몰라서 jar 파일에 실행권한도 추가해줬다. 
 
-```bash
+```yaml
 $ chmod +x SpringApp-0.0.1-SNAPSHOT.jar
 ```
 
@@ -19,7 +19,7 @@ $ chmod +x SpringApp-0.0.1-SNAPSHOT.jar
 
 docker image를 만들기 위해 build 하기 전 dockerfile을 작성해줬다. 
 
-```bash
+```yaml
 FROM openjdk:17-slim AS base
 # 작업 디렉토리 설정
 WORKDIR /app
@@ -36,13 +36,13 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ### 1-3. Docker Image 생성 및 push
 
-```bash
+```yaml
 $ docker build -t hongminyeong/hongminikube:1.0 .
 ```
 
 나는 도커허브에 push 까지 해주었다. 
 
-```bash
+```yaml
 $ docker push hongminyeong/hongminikube:1.0
 ```
 
@@ -60,7 +60,7 @@ $ docker push hongminyeong/hongminikube:1.0
 
 `deployment.yaml`
 
-```bash
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -90,7 +90,7 @@ spec:
 
 작성이 완료되면 다음과같은 명령어로 실행한다. 
 
-```bash
+```yaml
 $ kubectl apply -f deployment.yaml 
 $ kubectl get deployments # 생성된 deployment 오브젝트 확인 
 ```
@@ -101,7 +101,7 @@ $ kubectl get deployments # 생성된 deployment 오브젝트 확인
 
 `service.yaml`
 
-```bash
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -121,7 +121,7 @@ spec:
 
 마찬가지로 명령어로 적용시켜준다. 
 
-```bash
+```yaml
 $ kubectl apply -f service.yaml
 ```
 
@@ -131,7 +131,7 @@ $ kubectl apply -f service.yaml
 
 nodePort 를 통해 생성한 hongminikube 서비스에 접근하는 IP 및 Port를 아래 명령어를 통해 확인 후 
 
-```bash
+```yaml
 $ minikube service hongminikube 
 ```
 
@@ -174,7 +174,7 @@ $ minikube service hongminikube
 > 
 > 3️⃣ 각 Pod에서 Spring 애플리케이션이 요청을 처리.
 > 
-> ```bash
+> ```yaml
 > +----------+         +-------------+          +------------------+
 > |  사용자   | -----> |  Service    | -----> |      Pod 1       |
 > |          |         | (hongminikube)|       |  (Spring App)    |
@@ -199,7 +199,7 @@ $ minikube service hongminikube
 > ```
 > 
 
-```bash
+```yaml
 $ minikube dashboard # dashboard 확인 명령어 
 ```
 
