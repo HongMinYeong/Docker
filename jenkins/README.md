@@ -94,7 +94,6 @@ docker run --name myjenkins2 --privileged -p 8080:8080 -v $(pwd)/appjardir:/var/
 - Jenkins 컨테이너가 실행된 후, `/var/jenkins_home/appjar` 경로에 `appjar` 폴더가 자동으로 생성
 - 이 폴더는 Jenkins에서 빌드한 JAR 파일을 저장하는 데 사용
 
-!https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/2c7309f8-8215-4376-b1eb-2947e2c4c970/image.png
 
 - Ngrok을 통한 Jenkins 외부 접근 설정
     - ngrok을 실행하면 로컬에서 실행 중인 Jenkins 인스턴스에 대한 공개 URL (Jenkins에 접근할 수 있는 외부 URL) 이 생성
@@ -113,7 +112,8 @@ docker run --name myjenkins2 --privileged -p 8080:8080 -v $(pwd)/appjardir:/var/
     - **Payload URL** 필드에 ngrok URL을 추가
         - 예: `http://your-ngrok-url.ngrok.io/github-webhook/`
 
-!https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/d34a29c1-437e-4cf6-8736-91720bcd5d58/image.png
+![1001](https://github.com/user-attachments/assets/cc041106-f4cb-47c1-a62a-4f5592e8ade2)
+
 
 ### 요약
 
