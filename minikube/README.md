@@ -141,7 +141,7 @@ $ minikube service hongminikube
 
 ![1008](https://github.com/user-attachments/assets/c9a39243-fab3-4e8a-b540-bdc24d69b88a)
 
-이제 [localhost/test로](http://localhost/test로) 접속시 
+이제 localhost/test로 접속시 
 
 ![1006](https://github.com/user-attachments/assets/578e746d-9a8e-4e94-b00a-b77794be8391)
 
