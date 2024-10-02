@@ -148,8 +148,39 @@ $ minikube service hongminikube
 스프링부트로 작성한 프로젝트가 잘 나오는 모습이다. 
 
 ## 5. 아키텍처 개요
+다음은 DaC(Diagrams as Code)를 통한 다이어그램이다. 
+아래의 python 코드를 통해 다이어그램 png 파일을 저장했다.
+```python
+from diagrams import Cluster, Diagram
+from diagrams.k8s.compute import Pod
+from diagrams.k8s.network import Service
+from diagrams.aws.general import Users
+from IPython.display import Image, display
 
- 
+# 다이어그램 생성 및 저장
+with Diagram("User to Services to Pods", show=False, filename="ce"):
+    user = Users("users")  # 사용자 노드 정의
+    
+    with Cluster("Service (hongminikube)" ,graph_attr={"bgcolor": "lightblue"}):
+        svc = Service("Service(hongminikube)")
+        
+        pod1 = Pod("Pod 1\n(Spring App)", style="filled", fillcolor="white")
+        pod2 = Pod("Pod 2\n(Spring App)", style="filled", fillcolor="white")
+        pod3 = Pod("Pod 3\n(Spring App)", style="filled", fillcolor="white")
+
+        svc >> pod1
+        svc >> pod2
+        svc >> pod3
+
+    # 사용자와 서비스 연결
+    user >> svc
+
+# 이미지 표시
+display(Image(filename="ce.png", width=500))
+	
+```
+
+ ![1003](https://github.com/user-attachments/assets/7bc55855-c990-4a45-b4c2-427ab5b3c5da)
 
 > 유저가 웹브라우저를 통해 서비스 요청 (localhost:30090)
 > 
@@ -173,6 +204,8 @@ $ minikube service hongminikube
 > 2️⃣ Kubernetes의 Service가 이 요청을 수신하고 `selector`에 따라 Pod로 라우팅.
 > 
 > 3️⃣ 각 Pod에서 Spring 애플리케이션이 요청을 처리.
+>
+> 
 > 
 > ```yaml
 > +----------+         +-------------+          +------------------+
@@ -198,6 +231,7 @@ $ minikube service hongminikube
 > 
 > ```
 > 
+
 
 ```yaml
 $ minikube dashboard # dashboard 확인 명령어 
