@@ -6,7 +6,8 @@
 
 빌드한 jar파일(`SpringApp-0.0.1-SNAPSHOT.jar`)을 해당 디렉토리에 넣어주고 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/6b61b324-03f2-4f9e-8cec-1e8057af480a/image.png)
+![1001](https://github.com/user-attachments/assets/66c28d5a-c651-4ddd-a7c8-81ecde099fc5)
+
 
 나는 혹시 몰라서 jar 파일에 실행권한도 추가해줬다. 
 
@@ -39,7 +40,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 $ docker build -t hongminyeong/hongminikube:1.0 .
 ```
 
-나는 도커허브에 push ,까지 해주었다. 
+나는 도커허브에 push 까지 해주었다. 
 
 ```bash
 $ docker push hongminyeong/hongminikube:1.0
@@ -85,8 +86,7 @@ spec:
         - containerPort: 8888
 
 ```
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/d7613772-1048-44ce-9994-9977bb17e682/image.png)
+![1002](https://github.com/user-attachments/assets/e1400398-35b7-454a-812e-cdfc74ae904b)
 
 작성이 완료되면 다음과같은 명령어로 실행한다. 
 
@@ -117,7 +117,7 @@ spec:
 
 ```
 
-컨테이너 이미지에서 8888으로 expose한 port를 30090 으로 nodePost를 이용해 expose 시켜주었다. 
+컨테이너 이미지에서 8888으로 expose한 port를 30090 으로 nodePort를 이용해 expose 시켜주었다. 
 
 마찬가지로 명령어로 적용시켜준다. 
 
@@ -125,7 +125,7 @@ spec:
 $ kubectl apply -f service.yaml
 ```
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/1eff6b0f-ecf6-44ee-b59e-67e61311a061/image.png)
+![1003](https://github.com/user-attachments/assets/4fba5493-c065-4a3b-8e28-88d025ac934b)
 
 ## 4. 웹 브라우저를 통한 접속
 
@@ -135,15 +135,15 @@ nodePort 를 통해 생성한 hongminikube 서비스에 접근하는 IP 및 Port
 $ minikube service hongminikube 
 ```
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/2639579d-d697-4e41-a1bb-0fcbc04b9f34/image.png)
+![1004](https://github.com/user-attachments/assets/d5dd0214-02ad-4563-9f0c-5060f55d5c28)
 
 웹 브라우저에서 확인하게 위해  VSC 에서 포트포워딩을 진행해주었다. 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/e364a98e-f18c-4a83-afe9-04c8e28eb0ca/image.png)
+![1005](https://github.com/user-attachments/assets/efce48c8-16c0-46d0-88cd-e8aaed9c02ec)
 
 이제 [localhost/test로](http://localhost/test로) 접속시 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/4c3638ce-3aba-4478-aab5-561d1179c91d/image.png)
+![1006](https://github.com/user-attachments/assets/578e746d-9a8e-4e94-b00a-b77794be8391)
 
 스프링부트로 작성한 프로젝트가 잘 나오는 모습이다. 
 
@@ -204,5 +204,4 @@ $ minikube dashboard # dashboard 확인 명령어
 ```
 
 Kubernetes 대시보드로 확인 
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/75620ae2-9ad6-409a-a317-5ea81d4349ba/33a0c934-456c-4099-8e42-bd1d930bdf10/image.png)
+![1007](https://github.com/user-attachments/assets/4be21ef8-640f-488c-a5c2-8c413ff012e9)
